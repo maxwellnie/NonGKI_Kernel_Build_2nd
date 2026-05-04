@@ -45,7 +45,9 @@ runs:
           if [ -n "${{ env.CLANG_SOURCE }}" ]; then
             export PATH=$GITHUB_WORKSPACE/clang-custom/bin:$PATH
           fi
-
+          
+          export KMI_SYMBOL_LIST_STRICT_MODE=
+          
           if [[ "$BUILD_CLANG" == "true" ]]; then
             echo "========================"
             echo "=Read Defconfig (Clang)="
