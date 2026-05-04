@@ -27,16 +27,6 @@ runs:
         with:
           key: build-kernel-${{ env.DEVICE_NAME }}${{ env.UPLOADNAME }}
           max-size: 2G
-      - name: Setup official Clang for Android12-5.10
-        shell: bash
-        run: |
-          cd $GITHUB_WORKSPACE/device_kernel
-          mkdir -p clang-official
-          cd clang-official
-          wget -O clang-r416183b.tar.gz "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android12--mainline-release/clang-r416183b.tar.gz"
-          tar -xzf clang-r416183b.tar.gz
-          rm clang-r416183b.tar.gz
-          echo "$PWD/bin" >> $GITHUB_PATH
           
       - name: Build Kernel
         shell: bash
