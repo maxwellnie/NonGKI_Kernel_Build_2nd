@@ -1,4 +1,4 @@
-name: Build Sample YAML
+name: Build Xiaomi 12s ultra android12-kernel-linux-5.10.205-patched-release
 
 on:
   workflow_call:
