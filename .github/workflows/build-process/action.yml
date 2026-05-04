@@ -32,7 +32,8 @@ runs:
         shell: bash
         run: |
           cd $GITHUB_WORKSPACE/device_kernel/
-
+mkdir -p /buildbot/src/android/common-android12-5.10-2022-10/out/android12-5.10/common/
+    touch /buildbot/src/android/common-android12-5.10-2022-10/out/android12-5.10/common/abi_symbollist.raw
           # Function
           BUILD_PROCESS(){
           if [ -n "$1" ]; then
