@@ -27,6 +27,13 @@ runs:
         with:
           key: build-kernel-${{ env.DEVICE_NAME }}${{ env.UPLOADNAME }}
           max-size: 2G
+
+      - name: Fix Werror conflict in Makefiles
+        shell: bash
+        run: |
+          cd $GITHUB_WORKSPACE/device_kernel
+          find . -name Makefile -exec sed -i 's/-Wno-unused-function/-Wno-error=unused-function/g' {} +
+          make ... KCFLAGS="-Wno-error=unused-function"
           
       - name: Build Kernel
         shell: bash
