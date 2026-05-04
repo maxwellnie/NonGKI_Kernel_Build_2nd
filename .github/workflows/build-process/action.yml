@@ -53,7 +53,7 @@ mkdir -p /buildbot/src/android/common-android12-5.10-2022-10/out/android12-5.10/
             echo "========================"
             echo "=Read Defconfig (Clang)="
             echo "========================"
-            make CC="ccache clang" O=out ARCH="${{ env.KERNEL_ARCH }}" ${{ env.CUSTOM_CMDS }} ${{ env.EXTRA_CMDS }} ${{ env.DEFCONFIG_NAME }}
+            make CC="ccache clang" O=out ARCH="${{ env.KERNEL_ARCH }}" ${{ env.CUSTOM_CMDS }} ${{ env.EXTRA_CMDS }} ${{ env.DEFCONFIG_NAME }} 
           else
             echo "================"
             echo "=Read Defconfig="
@@ -104,11 +104,11 @@ mkdir -p /buildbot/src/android/common-android12-5.10-2022-10/out/android12-5.10/
             echo "======================"
 
             if [[ "${{ env.BASEBAND_GUARD_ENABLE }}" == "true" ]]; then
-                make V=1 -j$(nproc --all) CC="ccache clang" ${{ env.CUSTOM_CMDS }} ${{ env.EXTRA_CMDS }} O=out ARCH="${{ env.KERNEL_ARCH }}" KMI_SYMBOL_LIST_STRICT_MODE= TRIM_NONLISTED_KMI= security/selinux/
+                make V=1 -j$(nproc --all) CC="ccache clang" ${{ env.CUSTOM_CMDS }} ${{ env.EXTRA_CMDS }} O=out ARCH="${{ env.KERNEL_ARCH }}" KMI_SYMBOL_LIST_STRICT_MODE= TRIM_NONLISTED_KMI= security/selinux/ KCFLAGS="-Wno-error=unused-function"
                 echo "[+] Pre-built SELinux done."
             fi
 
-            make -j$(nproc --all) CC="ccache clang" ${{ env.CUSTOM_CMDS }} ${{ env.EXTRA_CMDS }} O=out ARCH="${{ env.KERNEL_ARCH }}" KMI_SYMBOL_LIST_STRICT_MODE= TRIM_NONLISTED_KMI= 2>&1|tee error.log
+            make -j$(nproc --all) CC="ccache clang" ${{ env.CUSTOM_CMDS }} ${{ env.EXTRA_CMDS }} O=out ARCH="${{ env.KERNEL_ARCH }}" KMI_SYMBOL_LIST_STRICT_MODE= TRIM_NONLISTED_KMI= 2>&1|tee error.log KCFLAGS="-Wno-error=unused-function"
           else
             echo "===================="
             echo "=Execuate GCC Build="
