@@ -30,9 +30,9 @@ env:
   DEFCONFIG_FROM_BOOT: false
 
 
-  KERNELSU_AUTO_GET : "true" # if u want easy setting kernelsu, u can true.
-  KERNELSU_AUTO_FORK : "sukisu" # magic, rsuntk, next, resukisu and sukisu
-  KERNELSU_SOURCE : "setup.sh"
+  # KERNELSU_AUTO_GET : "false" # if u want easy setting kernelsu, u can true.
+  # KERNELSU_AUTO_FORK : "sukisu" # magic, rsuntk, next, resukisu and sukisu
+  # KERNELSU_SOURCE : "setup.sh"
 
   SUSFS_ENABLE : false
   SUSFS_FIXED : false
@@ -53,7 +53,7 @@ env:
   PACK_METHOD: "Anykernel3" # Anykernel3 need SOURCE and BRANCH, MKBOOTIMG needn't it.
   PACK_KMODULES: "false" # if u want pack kernel modules (.ko) into Anykernel3.
 
-  KERNELSU_METHOD: "shell" # shell, manual and only.
+  # KERNELSU_METHOD: "shell" # shell, manual and only.
 
   PATCHES_SOURCE: "author/source" # [your_name]/[your_patch] -> gooder123/NonGKI_Patcher
   PATCHES_BRANCH: "branch" # [your_branch] -> main
