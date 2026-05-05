@@ -5,14 +5,14 @@ on:
   workflow_dispatch:
 
 env:
-
+  
   DEVICE_NAME : "Xiaomi 12s ultra"
   DEVICE_CODENAME : "thor"
 
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
-  KERNEL_SOURCE : ""https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android12--mainline-release/clang-r416183b.tar.gz""
+  KERNEL_SOURCE : ""https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android12--mainline-release/clang-r416183b.tar.gz"
   KERNEL_BRANCH : ""
 
   CLANG_SOURCE : "https://git.halogenos.org/halogenOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b.git"
