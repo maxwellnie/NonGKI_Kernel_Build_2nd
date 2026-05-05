@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 env:
-  # Device env
+
   DEVICE_NAME : "Xiaomi 12s ultra"
   DEVICE_CODENAME : "thor"
 
